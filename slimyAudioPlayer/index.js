@@ -63,8 +63,6 @@ import './slimyProgressBar/index.js';
       this.audioWasBuilt = false;
 
       this.handleCanvas();
-
-      requestAnimationFrame(this.animationLoop.bind(this));
     }
 
     animationLoop () {
@@ -220,7 +218,9 @@ import './slimyProgressBar/index.js';
 
     play () {
       if (!this.audioWasBuilt) {
+        this.audioWasBuilt = true;
         this.buildAudioGraph();
+        requestAnimationFrame(this.animationLoop.bind(this));
       }
 
       this.audioContext.resume();
@@ -230,7 +230,6 @@ import './slimyProgressBar/index.js';
 
     pause () {
       this.player.pause();
-      this.audioCtx.resume();
       this.shadowRoot.querySelector('#playButton').setAttribute('src', this.basePath + './assets/imgs/play.svg');
     }
 
