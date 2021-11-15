@@ -1,0 +1,15 @@
+.playlist .option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+}
+
+.playlist .option img {
+    width: 30px;
+    margin-right: 5px;
+}
+
+.playlist .option.current img {
+    filter: hue-rotate(200deg);
+}

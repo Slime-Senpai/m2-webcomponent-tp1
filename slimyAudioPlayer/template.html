@@ -1,0 +1,159 @@
+{{cssStyle}}
+<div id="container">
+    <audio id="audioPlayer">
+        <source src="./assets/songs/LaSueur.mp3" type="audio/mp3" />
+    </audio>
+    <h2 id="title">Musique actuelle: La Sueur</h2>
+    <canvas id="visualizer"></canvas>
+    <sl1-progressbar
+        text-color="#FFF"
+        background-color="#AAA"
+        border-radius="10px"
+        border-color="#0000"
+        border-width="10px"
+        width="500px"
+        height="20px"
+        progress-color="#22F"
+        dot-color="#55F"
+        dot-diameter="25px"
+        start-time="0"
+        end-time="0"
+        current-time="0"
+    ></sl1-progressbar>
+    <div class="controls">
+        <webaudio-knob
+            id="funPart"
+            tooltip="Aiguille fun"
+            src="./assets/imgs/Realistic-Vu.png"
+            sprites="98"
+            width="128"
+            height="128"
+            value="0"
+            min="0"
+            max="100"
+            step="1"
+        ></webaudio-knob>
+    </div>
+    <div class="controls">
+        <img id="playButton" src="./assets/imgs/play.svg" alt="playButton" width="50px" height="50px">
+        <img id="loopButton" src="./assets/imgs/loop.svg" alt="loopButton" width="50px" height="50px">
+    </div>
+    <div class="controls">
+        <img id="previousSong" src="./assets/imgs/previous.svg" alt="previousButton" width="50px" height="50px">
+        <img id="backwardTen" src="./assets/imgs/backward.svg" alt="backwardButton" width="50px" height="50px">
+        <img id="stopButton" src="./assets/imgs/stop.svg" alt="stopButton" width="50px" height="50px">
+        <img id="forwardTen" src="./assets/imgs/forward.svg" alt="forwardButton" width="50px" height="50px">
+        <img id="nextSong" src="./assets/imgs/next.svg" alt="nextButton" width="50px" height="50px">
+    </div>
+    <div class="controls">
+        <webaudio-knob
+            id="knobBalance"
+            tooltip="Balance:%s"
+            src="./assets/imgs/Sonatom_bipo.png"
+            sprites="100"
+            value="0"
+            min="-1"
+            max="1"
+            step="0.1"
+        >
+            Balance
+        </webaudio-knob>
+        <webaudio-knob
+            id="knobVolume"
+            tooltip="Volume:%s"
+            src="./assets/imgs/LittlePhatty.png"
+            sprites="100"
+            value="0.2"
+            min="0"
+            max="1"
+            step="0.01"
+        >
+            Volume
+        </webaudio-knob>
+    </div>
+
+    <div class="controls sliders">
+        <div class="row">
+            <div>
+                <p>Gain 60Hz</p>
+                <webaudio-slider
+                    id="gain0"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 60Hz">
+                </webaudio-slider>
+            </div>
+            <div>
+                <p>Gain 170Hz</p>
+                <webaudio-slider
+                    id="gain1"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 170Hz">
+                </webaudio-slider>
+            </div>
+            <div>
+                <p>Gain 350Hz</p>
+                <webaudio-slider
+                    id="gain2"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 350Hz">
+                </webaudio-slider>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <p>Gain 1000Hz</p>
+                <webaudio-slider
+                    id="gain3"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 1000Hz">
+                </webaudio-slider>
+            </div>
+            <div>
+                <p>Gain 3500Hz</p>
+                <webaudio-slider
+                    id="gain4"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 3500Hz">
+                </webaudio-slider>
+            </div>
+            <div>
+                <p>Gain 10000Hz</p>
+                <webaudio-slider
+                    id="gain5"
+                    width="200"
+                    height="25"
+                    value="0"
+                    step="1"
+                    min="-30"
+                    max="30"
+                    tooltip="Gain 10000Hz">
+                </webaudio-slider>
+            </div>
+        </div>
+    </div>
+</div>

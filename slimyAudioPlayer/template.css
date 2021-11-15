@@ -1,0 +1,32 @@
+.controls {
+    margin-top: 1rem;
+}
+
+.sliders {
+    display: flex;
+    flex-direction: column;
+}
+
+.sliders .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.sliders p, .playlist {
+    margin: 0.25rem;
+    color: #fff;
+}
+
+#playButton, #backwardTen, #forwardTen, #stopButton, #previousSong, #nextSong, #loopButton.enabled {
+    filter: hue-rotate(200deg);
+}
+
+#visualizer {
+    background-color: #000;
+    width: 80%;
+    height: 100px;
+    margin-bottom: 2rem;
+}
