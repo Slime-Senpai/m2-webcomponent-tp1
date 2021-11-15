@@ -60,6 +60,8 @@ import './slimyProgressBar/index.js';
 
       this.declareListeners();
 
+      this.audioWasBuilt = false;
+
       this.buildAudioGraph();
 
       this.handleCanvas();
@@ -219,8 +221,12 @@ import './slimyProgressBar/index.js';
     }
 
     play () {
-      this.player.play();
+      if (!this.audioWasBuilt) {
+        this.buildAudioGraph();
+      }
+
       this.audioContext.resume();
+      this.player.play();
       this.shadowRoot.querySelector('#playButton').setAttribute('src', this.basePath + './assets/imgs/pause.svg');
     }
 
