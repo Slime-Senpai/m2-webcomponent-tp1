@@ -62,8 +62,6 @@ import './slimyProgressBar/index.js';
 
       this.audioWasBuilt = false;
 
-      this.buildAudioGraph();
-
       this.handleCanvas();
 
       requestAnimationFrame(this.animationLoop.bind(this));
