@@ -103,14 +103,14 @@ import './slimyProgressBar/index.js';
     }
 
     buildAudioGraph () {
-      const audioContext = new AudioContext();
+      this.audioContext = new AudioContext();
 
-      const audioPlayerNode = audioContext.createMediaElementSource(this.player);
+      const audioPlayerNode = this.audioContext.createMediaElementSource(this.player);
 
       this.filters = [];
 
       [60, 170, 350, 1000, 3500, 10000].forEach((freq, i) => {
-        const eq = audioContext.createBiquadFilter();
+        const eq = this.audioContext.createBiquadFilter();
         eq.frequency.value = freq;
         eq.type = 'peaking';
         eq.gain.value = 0;
@@ -123,18 +123,18 @@ import './slimyProgressBar/index.js';
         this.filters[i].connect(this.filters[i + 1]);
       }
 
-      this.analyserNode = audioContext.createAnalyser();
+      this.analyserNode = this.audioContext.createAnalyser();
       this.analyserNode.fftSize = 256;
       this.bufferLength = this.analyserNode.frequencyBinCount;
       this.dataArray = new Uint8Array(this.bufferLength);
 
       this.filters[this.filters.length - 1].connect(this.analyserNode);
 
-      this.pannerNode = audioContext.createStereoPanner();
+      this.pannerNode = this.audioContext.createStereoPanner();
 
       this.analyserNode.connect(this.pannerNode);
 
-      this.pannerNode.connect(audioContext.destination);
+      this.pannerNode.connect(this.audioContext.destination);
     }
 
     fixRelativePaths () {
@@ -220,11 +220,13 @@ import './slimyProgressBar/index.js';
 
     play () {
       this.player.play();
+      this.audioContext.resume();
       this.shadowRoot.querySelector('#playButton').setAttribute('src', this.basePath + './assets/imgs/pause.svg');
     }
 
     pause () {
       this.player.pause();
+      this.audioCtx.resume();
       this.shadowRoot.querySelector('#playButton').setAttribute('src', this.basePath + './assets/imgs/play.svg');
     }
 
